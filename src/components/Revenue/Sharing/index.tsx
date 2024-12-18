@@ -10,13 +10,20 @@ import CustomButton from "@/components/Custom/Button";
 const RevenueSharing = () => {
   const theme = useTheme();
   const islgScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isxlOverScreen = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
     <CustomContainer>
       <Stack alignItems="center" padding="0 12px">
         <Stack 
           alignItems="center"
-          width={islgScreen ? "66.6667%" : "100%"}
+          width={
+            isxlOverScreen ? 
+            "calc(100% / 12 * 7)" 
+            : islgScreen ? 
+              "calc(100% / 12 * 8)"
+              : "100%"
+          }
           padding="0 12px"
         >
           <RevenueTitle 
