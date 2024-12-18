@@ -11,7 +11,7 @@ import { HeaderItems } from "@/assets/data";
 import styles from "./style";
 
 const Logo = () => (
-  <Stack direction="row" alignItems="center" sx={{cursor: "pointer"}}>
+  <Stack direction="row" alignItems="center" padding="0 12px" sx={{cursor: "pointer"}}>
     <Image
       src="/images/logo/veil.svg"
       alt="Veil Brand Icon"
@@ -45,7 +45,7 @@ const NavigationMenu = ({ isWideScreen }: {isWideScreen: boolean}) => (
           }
         }}
       >
-        <Typography fontSize="18px">
+        <Typography fontSize="16px">
           {item.name}
         </Typography>
       </Button>
@@ -68,7 +68,7 @@ const Header = () => {
             <NavigationMenu isWideScreen={isWideScreen} />
           )}
 
-          <Stack direction="row" gap={3}>
+          <Stack direction="row" gap={3} padding="0 12px">
             {!isNarrowScreen && (
               <Button sx={styles.exchangeButton}>
                 <Stack direction="row" alignItems="center" gap={0.5}>
