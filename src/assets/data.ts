@@ -363,4 +363,32 @@ export const VEIL_TOKENOMICS_DATA = [
     name: "CEX Allocation:",
     amount: "80,000,000"
   },
-]
+];
+
+export const Revenue_Allocation_DATA = [
+  {
+    name: "Marketing:",
+    percent: "30%",
+    color: "#DC3545"
+  },
+  {
+    name: "Revenue Share:",
+    percent: "20%",
+    color: "#10CD75"
+  },
+  {
+    name: "Team:",
+    percent: "20%",
+    color: "#8671FF"
+  },
+  {
+    name: "Development:",
+    percent: "15%",
+    color: "#0DCAF0"
+  },
+  {
+    name: "Treasury:",
+    percent: "15%",
+    color: "#FFA800"
+  },
+];

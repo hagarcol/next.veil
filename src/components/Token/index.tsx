@@ -6,6 +6,7 @@ import { Stack } from "@mui/material";
 // components
 import TokenSection from "./TokenSection";
 import VeilTokenStats from "./VeilTokenStats";
+import RevenueAllocation from "./Allocation";
 import CountSection from "../Revenue/CountSection";
 
 const Token = () => {
@@ -15,6 +16,8 @@ const Token = () => {
 
       <VeilTokenStats />
 
+      <RevenueAllocation />
+      
       <CountSection />
     </Stack>
   )
