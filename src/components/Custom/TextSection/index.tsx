@@ -16,6 +16,7 @@ interface PropsType {
   lineHeight?: number;
   margin?: string;
   sx?: Record<string, string | number | boolean | Record<string, string | number>>; 
+  sxText?: Record<string, string | number | boolean | Record<string, string | number>>; 
 }
 
 const TextSection = ({
@@ -29,7 +30,8 @@ const TextSection = ({
   fontStyle,
   lineHeight = 1.2,
   margin,
-  sx
+  sx,
+  sxText
 }: PropsType) => {
   const theme = useTheme();
   
@@ -61,7 +63,8 @@ const TextSection = ({
           color={color}
           sx={{
             width: "fit-content",
-            margin: margin || 0
+            margin: margin || 0,
+            ...sxText
           }}
         >
           {text}

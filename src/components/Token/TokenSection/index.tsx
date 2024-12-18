@@ -1,5 +1,5 @@
 // @ mui
-import { Stack, useMediaQuery } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 
 //components
 import TextSection from "@/components/Custom/TextSection";
@@ -33,16 +33,20 @@ const TokenomicItem = ({
         <TextSection 
           text={name}
           fontSize={20}
+          fontWeight={400}
           align="left"
           color="#DEDEDE"
         />
 
-        <TextSection 
-          text="(Buy/Sell)"
-          fontSize={17.5}
-          align="left"
-          color="#DEDEDE"
-        />
+        {index === 0 && (
+          <TextSection 
+            text="(Buy/Sell)"
+            fontSize={17.5}
+            fontWeight={400}
+            align="left"
+            color="#DEDEDE80"
+          />
+        )}
       </Stack>
 
       <TextSection 
@@ -61,10 +65,10 @@ const TokenSection = () => {
   return (
     <>
       <Stack
-        minHeight="65vh"
+        minHeight="60vh"
         sx={{
           backgroundImage: "url(/images/background.webp)",
-          padding: "200px 0px"
+          padding: "200px 0px 100px"
         }}
         >
         <Stack
@@ -76,7 +80,9 @@ const TokenSection = () => {
           gap={4}
         >
           <Stack
+            maxWidth="530px"
             width={isNarrowScreen ? "100%" : "50%"}
+            padding="0 12px"
           >
             <TextSection 
               text="Introducing"
@@ -84,7 +90,7 @@ const TokenSection = () => {
               gradient={true}
               fontSize={64}
               align="left"
-              margin="0 0 24px"
+              margin="0 0"
             />
 
             <TextSection 
@@ -103,6 +109,9 @@ const TokenSection = () => {
               fontWeight={400}
               align="left"
               margin="0 0 24px"
+              sxText={{
+                lineHeight: 2
+              }}
             />
             
             <TextSection 
@@ -112,34 +121,58 @@ const TokenSection = () => {
               fontWeight={400}
               align="left"
               margin="0 0 24px"
+              sxText={{
+                lineHeight: 2
+              }}
             />
 
-            <Stack direction="row" gap={1}>
+            <Stack direction="row" gap={2}>
               <CustomButton text="Buy Token"/>
+              
+              <Stack
+                alignSelf="center"
+              >
+                <Typography
+                  fontSize={16}
+                  sx={{
+                    textDecoration: "underline",
+                    textUnderlineOffset: "6px",
+                    cursor: "pointer",
+                    color: "white",
+                    transition: "color 0.5s",
+                    "&:hover": {
+                      color: "#8671FF"
+                    }
+                  }}
+                >
+                  View Chart
+                </Typography>
 
-              <CustomButton text="View Chart"/>
+              </Stack>
             </Stack>
           </Stack>
 
-          <Stack width="41.66%">
-            <TextSection 
-              text="$Veil Tokenomics"
-              variant="customFont"
-              gradient={true}
-              fontSize={40}
-              align="center"
-              margin="0 0 24px"
-            />
-
+          <Stack width="41.66%" alignSelf="center">
             <Stack>
-              {VEIL_TOKENOMICS_DATA.map((item, index) => (
-                <TokenomicItem 
-                  key={index}
-                  index={index}
-                  name={item.name}
-                  amount={item.amount}
-                />
-              ))}
+              <TextSection 
+                text="$Veil Tokenomics"
+                variant="customFont"
+                gradient={true}
+                fontSize={40}
+                align="center"
+                margin="0 0 24px"
+              />
+
+              <Stack>
+                {VEIL_TOKENOMICS_DATA.map((item, index) => (
+                  <TokenomicItem 
+                    key={index}
+                    index={index}
+                    name={item.name}
+                    amount={item.amount}
+                  />
+                ))}
+              </Stack>
             </Stack>
           </Stack>
         </Stack>
