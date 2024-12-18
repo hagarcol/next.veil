@@ -66,6 +66,8 @@ const CountItem = ({
 const CountSection = () => {
   const theme = useTheme();
   const islgScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isxlOverScreen = useMediaQuery(theme.breakpoints.up("xl"));
+
   const [timeLeft, setTimeLeft] = useState({
     days: 4,
     hours: 16,
@@ -122,14 +124,24 @@ const CountSection = () => {
       <Stack alignItems="center" padding="0 12px">
         <Stack 
           alignItems="center"
-          width={islgScreen ? "66.6667%" : "100%"}
+          padding="0 12px"
+          width={
+            isxlOverScreen ? 
+            "calc(100% / 12 * 7)" 
+            : islgScreen ? 
+              "calc(100% / 12 * 8)"
+              : "100%"
+          }
         >
           <RevenueTitle 
             title="Next Revenue Share Airdrop"
             description="Countdown till next Payout"
           />
 
-          <Grid container spacing={2}>
+          <Grid 
+            container 
+            spacing={islgScreen ? 2 : 1} 
+          >
             {timeUnits.map((unit, index) => (
               <Grid key={index} item xs={6} sm={6} md={3}>
                 <CountItem 

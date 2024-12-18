@@ -1,5 +1,5 @@
 // @ mui
-import { Stack, Typography, useMediaQuery } from "@mui/material";
+import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 //components
 import TextSection from "@/components/Custom/TextSection";
@@ -60,7 +60,11 @@ const TokenomicItem = ({
 }
 
 const TokenSection = () => {
+  const theme = useTheme();
   const isNarrowScreen = useMediaQuery("(max-width:992px)");
+  const ismdOverScreen = useMediaQuery(theme.breakpoints.up("md"));
+
+  const alignValue = ismdOverScreen ? "left" : "center";
 
   return (
     <>
@@ -80,16 +84,17 @@ const TokenSection = () => {
           gap={4}
         >
           <Stack
-            maxWidth="530px"
+            maxWidth={isNarrowScreen ? "100%" : "530px"}
             width={isNarrowScreen ? "100%" : "50%"}
             padding="0 12px"
+            margin={isNarrowScreen ? "0 0 48px " : "0 0"}
           >
             <TextSection 
               text="Introducing"
               variant="customFont"
               gradient={true}
-              fontSize={64}
-              align="left"
+              fontSize={isNarrowScreen ? 48 : 64}
+              align={alignValue}
               margin="0 0"
             />
 
@@ -97,8 +102,8 @@ const TokenSection = () => {
               text="$Veil Token"
               variant="customFont"
               color="#8671FF"
-              fontSize={64}
-              align="left"
+              fontSize={isNarrowScreen ? 48 : 64}
+              align={alignValue}
               margin="0 0 8px"
             />
 
@@ -107,7 +112,7 @@ const TokenSection = () => {
               variant="customFont"
               fontSize={20}
               fontWeight={400}
-              align="left"
+              align={alignValue}
               margin="0 0 24px"
               sxText={{
                 lineHeight: 2
@@ -119,14 +124,14 @@ const TokenSection = () => {
               variant="customFont"
               fontSize={20}
               fontWeight={400}
-              align="left"
+              align={alignValue}
               margin="0 0 24px"
               sxText={{
                 lineHeight: 2
               }}
             />
 
-            <Stack direction="row" gap={2}>
+            <Stack direction={ismdOverScreen ? "row" : "column"} gap={2} justifyContent={alignValue}>
               <CustomButton text="Buy Token"/>
               
               <Stack
@@ -152,7 +157,7 @@ const TokenSection = () => {
             </Stack>
           </Stack>
 
-          <Stack width="41.66%" alignSelf="center">
+          <Stack width={isNarrowScreen ? "100%" : "41.66%"} alignSelf="center" padding="0 12px">
             <Stack>
               <TextSection 
                 text="$Veil Tokenomics"
