@@ -10,7 +10,7 @@ export const GradientText = styled(Typography)({
 });
 
 const TitleSection = () => (
-  <Stack sx={{ mb: "2rem !important" }}>
+  <Stack sx={{ mb: "2rem !important", zIndex: 100 }}>
     <Typography
       variant='customFont'
       fontSize={64}

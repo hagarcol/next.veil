@@ -16,6 +16,7 @@ const StatsSection = () => {
       sx={{
         width: "100%",
         margin: "48px -8px",
+        zIndex: 100
       }}
     >
       <CustomBox 

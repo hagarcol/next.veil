@@ -18,7 +18,7 @@ const HeroContainer = styled(Box)(({ theme }) => ({
 const HeroSection = () => {
   return (
     <HeroContainer>
-      <VideoBackground videoPath="/video/herobackground.webm" />
+      <VideoBackground />
 
       <HeroContent />
     </HeroContainer>

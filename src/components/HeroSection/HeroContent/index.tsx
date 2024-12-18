@@ -12,6 +12,7 @@ import { DescriptionSectionProps } from '../types';
 
 const UnderlinedButton = styled(Button)({
   textTransform: "none",
+  zIndex: 100,
   "&.MuiButton-root:hover": {
     backgroundColor: "transparent"
   }
@@ -49,7 +50,8 @@ const DescriptionSection = ({ theme }: DescriptionSectionProps) => (
       fontSize={20}
       sx={{
         color: theme.palette.secondary.main,
-        lineHeight: 2
+        lineHeight: 2,
+        zIndex: 100
       }}
     >
       Trade BTC, ETH, MATIC, and 100+ other cryptocurrencies with seamless security and privacy. No sign-up or limits. 

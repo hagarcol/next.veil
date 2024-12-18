@@ -1,4 +1,3 @@
-import Image from "next/image";
 // @mui
 import { Stack, Typography, useTheme, Theme } from "@mui/material";
 import EastIcon from '@mui/icons-material/East';
@@ -48,7 +47,7 @@ const Item = (props: PropsType) => {
         </Stack>
 
         <Stack direction="row" alignItems="center">
-          <Image 
+          <img 
             src={crypto1}
             alt="crypto"
             width={24}
@@ -59,7 +58,7 @@ const Item = (props: PropsType) => {
 
           <EastIcon sx={{ margin: "0 16px", fontSize: 16}}/>
 
-          <Image 
+          <img 
             src={crypto2}
             alt="crypto"
             width={24}

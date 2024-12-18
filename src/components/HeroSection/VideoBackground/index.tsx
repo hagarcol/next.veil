@@ -2,34 +2,34 @@
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-// types
-import { VideoBackgroundProps } from '../types';
-
 const VideoContainer = styled(Box)({
   position: "absolute",
   top: 0,
   left: 0,
   width: '100vw',
   height: '100vh',
-  zIndex: -1,
+  zIndex: 0,
   overflow: 'hidden',
 });
 
-const BackgroundVideo = styled('video')({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-});
+// const BackgroundVideo = styled('video')(({ theme }) => ({
+//   width: '100%',
+//   height: '100%',
+//   objectFit: 'cover',
+//   top: '50%',
+//   left: '50%',
+//   transform: 'translate(-50%, -50%)',
+// })) as typeof Box; 
 
-const VideoBackground = ({ videoPath }: VideoBackgroundProps) => (
+const VideoBackground = () => (
   <VideoContainer>
-    <BackgroundVideo autoPlay muted loop playsInline>
-      <source src={videoPath} type="video/mp4" />
-    </BackgroundVideo>
+    <video 
+      autoPlay={true}
+      loop={true}
+      muted={true}
+      playsInline={true}
+      src="/video/herobackground.webm"
+    />
   </VideoContainer>
 );
 

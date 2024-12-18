@@ -25,7 +25,7 @@ export const CORE_BENEFITS_DATA = {
   title: "We are all about privacy and security",
   detail: [
     {
-      img: "/images/lock.jpeg",
+      img: "/images/lock.webp",
       subTitle: "Privacy-Driven",
       content: "Anonymized exchange with no sign-ups or limits."
     },
