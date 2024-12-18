@@ -1,5 +1,5 @@
 // @mui 
-import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, Stack, useMediaQuery } from "@mui/material";
 
 // components
 import CustomCard from "./CustomCard";

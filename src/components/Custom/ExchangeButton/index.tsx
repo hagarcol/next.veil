@@ -1,6 +1,6 @@
 import { Button, styled } from "@mui/material";
 
-const ExchangeButton = styled(Button)(({ theme }) => ({
+const ExchangeButton = styled(Button)(() => ({
   transition: 'all 0.2s ease-in-out',
   '&:hover': {
     transform: 'translateY(-2px)',

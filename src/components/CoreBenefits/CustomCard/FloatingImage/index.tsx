@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // @mui
 import { Stack } from "@mui/material";
 import { keyframes } from '@mui/material/styles';
@@ -19,7 +21,7 @@ const FloatingImage: React.FC<{ src: string; alt: string; height?: number }> = (
       }
     }}
   >
-    <img src={src} alt={alt} style={{ width: "auto", height }} />
+    <Image src={src} alt={alt} style={{ width: "auto", height }} />
   </Stack>
 );
 

@@ -1,5 +1,5 @@
 // @mui
-import { Box, Stack, Typography, useTheme } from "@mui/material"
+import { Stack, Typography, useTheme } from "@mui/material"
 
 //components
 import FloatingImage from "./FloatingImage";

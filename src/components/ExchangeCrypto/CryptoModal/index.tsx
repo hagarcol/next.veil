@@ -17,7 +17,18 @@ import { CRYPTO_TYPE, CRYPTO_DATA } from "@/assets/data";
 // redux
 import { setCrypto } from "@/redux/slices/crypto";
 
-const CryptoItem = ({ cypto, handleClose }: {cypto: CRYPTO_TYPE, handleClose: any}) => {
+interface CryptoItemPropsType {
+  cypto: CRYPTO_TYPE;
+  handleClose: () => void;
+}
+
+interface CryptoModalPropsType {
+  open: boolean;
+  handleClose: () => void;
+}
+
+
+const CryptoItem = ({ cypto, handleClose }: CryptoItemPropsType) => {
   const dispatch = useDispatch();
   const {img, name, subName} = cypto;
 
@@ -80,7 +91,7 @@ const CryptoItem = ({ cypto, handleClose }: {cypto: CRYPTO_TYPE, handleClose: an
   )
 }
 
-const CryptoModal = ({ open, handleClose }: {open: boolean, handleClose: any}) => {
+const CryptoModal = ({ open, handleClose }: CryptoModalPropsType) => {
   const isWideScreen = useMediaQuery("(min-width:992px)");
   const isNarrowScreen = useMediaQuery("(max-width:576px)");
   const theme = useTheme();
@@ -97,7 +108,7 @@ const CryptoModal = ({ open, handleClose }: {open: boolean, handleClose: any}) =
     );
   }, [originalData, searchTerm])
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   }
 

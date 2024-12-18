@@ -1,5 +1,3 @@
-import TwitterIcon from '@mui/icons-material/Twitter';
-
 export const HeaderItems = [
   {
     name: "Home",

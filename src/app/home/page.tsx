@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 
 // components
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CoreBenefits from "@/components/CoreBenefits";
 import ExchangeCrypto from "@/components/ExchangeCrypto";
@@ -10,7 +9,6 @@ import RecentTransaction from "@/components/RecentTransaction";
 import SupportedCrypto from "@/components/SupportedCrypto";
 import LatestUpdates from "@/components/LatestUpdates";
 import TrackOrder from "@/components/TrackOrder";
-import Footer from "@/components/Footer";
 
 const HomePage = () => {
   const [mounted, setMounted] = useState(false);

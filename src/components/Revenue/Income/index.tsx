@@ -1,5 +1,5 @@
 // @mui
-import { Stack, useTheme, useMediaQuery } from "@mui/material";
+import { Stack } from "@mui/material";
 
 // components
 import CustomContainer from "@/components/Custom/Container";
@@ -27,6 +27,7 @@ const IncomeItem = ({
       title={{
         text: title,
         fontSize: 20,
+        align: "left",
         variant: "customFont",
         sx: {
           padding: "8px 24px",
@@ -70,9 +71,6 @@ const IncomeItem = ({
   )
 }
 const RevenueIncome = () => {
-  const theme = useTheme();
-  const islgScreen = useMediaQuery(theme.breakpoints.up("lg"));
-
   return (
     <CustomContainer>
       <Stack>

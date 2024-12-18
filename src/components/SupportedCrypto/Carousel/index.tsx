@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import { Box } from '@mui/material';
 import { keyframes } from '@mui/system';
 
@@ -87,7 +88,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({
               },
             }}
           >
-            <img
+            <Image
               src={logo.src}
               alt={logo.alt}
               style={{
@@ -115,7 +116,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({
               },
             }}
           >
-            <img
+            <Image
               src={logo.src}
               alt={logo.alt}
               style={{

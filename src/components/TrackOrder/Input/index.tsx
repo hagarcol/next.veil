@@ -1,9 +1,9 @@
 // @mui
-import { Stack, Box, TextField, useTheme, Button, Typography, useMediaQuery } from "@mui/material";
+import { Stack, TextField, useTheme, Button, Typography, useMediaQuery } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
-const DarkTextField = styled(TextField)(({ theme }) => ({
+const DarkTextField = styled(TextField)(() => ({
   '& .MuiInputBase-root': {
     backgroundColor: '#121212',
     borderRadius: 8,

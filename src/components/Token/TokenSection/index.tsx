@@ -4,12 +4,9 @@ import { Stack, useMediaQuery } from "@mui/material";
 //components
 import TextSection from "@/components/Custom/TextSection";
 import CustomButton from "@/components/Custom/Button";
-import CustomBox from "@/components/Custom/Box";
-import EastIcon from '@mui/icons-material/East';
 
 // data
 import { VEIL_TOKENOMICS_DATA } from "@/assets/data";
-import { Padding } from "@mui/icons-material";
 
 interface PropsType {
   index: number;

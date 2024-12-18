@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 // @mui
 import { Stack } from "@mui/material";
 
@@ -8,7 +6,7 @@ import { GradientText } from "../HeroSection/TitleSection";
 import LogoCarousel from "./Carousel";
 
 // data
-import { logos, Logo } from "@/assets/data";
+import { logos } from "@/assets/data";
 
 const SupportedCrypto = () => {
   return (

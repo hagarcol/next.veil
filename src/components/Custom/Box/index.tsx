@@ -1,14 +1,26 @@
 // @mui
-import { Stack, Typography, useTheme } from "@mui/material";
+import { Stack, useTheme } from "@mui/material";
 
 // component
 import TextSection from "../TextSection";
 
 interface PropsType {
-  title?: null | any;
-  content?: null | any;
-  sx?: any
-}
+  title?: null | {
+    text: string; 
+    align: "left" | "center" | "right";
+    variant?: "customFont"; 
+    fontSize?: number;
+    color?: string;
+    gradient?: boolean;
+    fontWeight?: number;
+    fontStyle?: string;
+    lineHeight?: number;
+    margin?: string;
+    sx?: Record<string, string | number | boolean | Record<string, string | number>>;
+  };
+  content?: React.ReactNode; 
+  sx?: Record<string, string | number | boolean | Record<string, string | number>>;
+};
 
 const CustomBox = ({
   title,

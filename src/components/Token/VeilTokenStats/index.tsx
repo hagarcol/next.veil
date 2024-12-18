@@ -4,7 +4,6 @@ import { Stack, Grid } from "@mui/material";
 // components
 import TextSection from "@/components/Custom/TextSection";
 import CustomBox from "@/components/Custom/Box";
-import { text } from "stream/consumers";
 
 interface CountItemType {
   title: string;
@@ -25,7 +24,8 @@ const StatsItem = ({
       title={{
         text: title,
         variant: "customFont",
-        fontSize: "24px",
+        align: "left",
+        fontSize: 24,
         fontWeight: 700,
         sx: {
           padding: "8px 16px"

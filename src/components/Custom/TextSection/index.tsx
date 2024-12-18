@@ -15,7 +15,7 @@ interface PropsType {
   fontStyle?: string;
   lineHeight?: number;
   margin?: string;
-  sx?: any;
+  sx?: Record<string, string | number | boolean | Record<string, string | number>>; 
 }
 
 const TextSection = ({

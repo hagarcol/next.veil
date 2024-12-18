@@ -57,7 +57,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   }),
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+const AccordionDetails = styled(MuiAccordionDetails)(() => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
   padding: '16px 20px',
 }));
@@ -73,7 +73,7 @@ export default function CustomizedAccordions() {
   return (
     <div>
       {FAQ_DATA.map((item, index) => (
-        <Accordion expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
+        <Accordion key={index} expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
           <AccordionSummary aria-controls={`panel${index}d-content`} id={`panel${index}d-header`} sx={{ padding: "16px 20px" }}>
             <Typography
               variant='customFont'

@@ -82,7 +82,7 @@ const CountSection = () => {
           return prevTime;
         }
 
-        let newTime = { ...prevTime };
+        const newTime = { ...prevTime };
 
         if (newTime.seconds > 0) {
           newTime.seconds--;
@@ -131,7 +131,7 @@ const CountSection = () => {
 
           <Grid container spacing={2}>
             {timeUnits.map((unit, index) => (
-              <Grid key={unit.title} item xs={6} sm={6} md={3}>
+              <Grid key={index} item xs={6} sm={6} md={3}>
                 <CountItem 
                   count={unit.value.toString().padStart(2, '0')} 
                   unit={unit.title}

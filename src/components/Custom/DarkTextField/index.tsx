@@ -1,6 +1,6 @@
 import { TextField, styled } from "@mui/material";
 
-const DarkTextField = styled(TextField)(({ theme }) => ({
+const DarkTextField = styled(TextField)(() => ({
   '& .MuiInputBase-root': {
     backgroundColor: "#2d2d39",
     borderRadius: 8,

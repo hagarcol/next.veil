@@ -1,6 +1,6 @@
 // @mui
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
-import { Box, Typography, Button, Stack, useTheme } from '@mui/material';
+import { Typography, Button, Stack, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // component

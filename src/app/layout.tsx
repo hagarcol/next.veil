@@ -1,6 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { useEffect, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

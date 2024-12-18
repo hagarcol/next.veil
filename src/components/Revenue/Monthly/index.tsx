@@ -1,10 +1,9 @@
 // @mui
-import { Stack, useTheme, useMediaQuery } from "@mui/material";
+import { Stack } from "@mui/material";
 
 // components
 import CustomContainer from "@/components/Custom/Container";
 import TextSection from "@/components/Custom/TextSection";
-import CustomBox from "@/components/Custom/Box";
 
 const MonthlyRevenuce = () => {
   return (

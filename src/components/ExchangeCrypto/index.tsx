@@ -13,7 +13,6 @@ import ExchangeButton from "../Custom/ExchangeButton";
 import CustomCheckbox from "../Custom/CustomCheckbox";
 import CryptoBox from "./CryptoBox";
 import WalletAddress from "./WalletAddress";
-import CryptoModal from "./CryptoModal";
 
 // redux
 import { useDispatch } from "react-redux";

@@ -1,6 +1,6 @@
 import { Checkbox, styled } from "@mui/material";
 
-const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
+const CustomCheckbox = styled(Checkbox)(() => ({
   color: "transparent",
   border: "2px solid #444",
   borderRadius: "4px",

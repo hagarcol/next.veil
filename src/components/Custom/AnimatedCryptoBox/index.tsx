@@ -1,6 +1,6 @@
 import { Stack, styled } from "@mui/material";
 
-const AnimatedCryptoBox = styled(Stack)(({ theme }) => ({
+const AnimatedCryptoBox = styled(Stack)(() => ({
   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
   '&:hover': {
     transform: 'translateY(-2px)',
