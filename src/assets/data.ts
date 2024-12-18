@@ -1,23 +1,23 @@
 export const HeaderItems = [
   {
     name: "Home",
-    url: ""
+    url: "/home"
   },
   {
     name: "FAQs",
-    url: ""
+    url: "/faq"
   },
   {
     name: "Utility Token",
-    url: ""
+    url: "/token"
   },
   {
     name: "Revenue Share",
-    url: ""
+    url: "/revenue"
   },
   {
     name: "How to use",
-    url: ""
+    url: "#"
   },
 ]
 

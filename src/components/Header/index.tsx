@@ -1,12 +1,16 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 // @mui
 import { useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CachedIcon from '@mui/icons-material/Cached';
 import { AppBar, Stack, Button, Typography, Container } from "@mui/material";
+
 // @data
 import { HeaderItems } from "@/assets/data";
+
 // styles
 import styles from "./style";
 
@@ -25,33 +29,42 @@ const Logo = () => (
   </Stack>
 );
 
-const NavigationMenu = ({ isWideScreen }: {isWideScreen: boolean}) => (
-  <Stack
-    direction={isWideScreen ? "row" : "column"}
-    sx={styles.navigationMenu(isWideScreen)}
-  >
-    {HeaderItems.map((item, index) => (
-      <Button
-        key={index}
-        sx={{ 
-          padding: "8px 24px",
-          textTransform: "none",
-          background: "transparent",
-          color: "white",
-          transition: "color 0.3s",
-          "&.MuiButton-root:hover": { 
+const NavigationMenu = ({ isWideScreen }: {isWideScreen: boolean}) => {
+  const router = useRouter();
+  const handlePageNavigation = (url: string) => {
+    router.push(url);
+  }
+
+  return (
+    <Stack
+      direction={isWideScreen ? "row" : "column"}
+      sx={styles.navigationMenu(isWideScreen)}
+    >
+      {HeaderItems.map((item, index) => (
+        <Button
+          key={index}
+          onClick={() => handlePageNavigation(item.url)}
+          sx={{ 
+            padding: "8px 24px",
+            textTransform: "none",
             background: "transparent",
-            color: "#8671FF",
-          }
-        }}
-      >
-        <Typography fontSize="16px">
-          {item.name}
-        </Typography>
-      </Button>
-    ))}
-  </Stack>
-);
+            color: "white",
+            transition: "color 0.3s",
+            borderRadius: "4rem",
+            "&.MuiButton-root:hover": { 
+              background: "transparent",
+              color: "#8671FF",
+            }
+          }}
+        >
+          <Typography fontSize="16px">
+            {item.name}
+          </Typography>
+        </Button>
+      ))}
+    </Stack>
+  )
+};
 
 const Header = () => {
   const isWideScreen = useMediaQuery('(min-width:1200px)');
