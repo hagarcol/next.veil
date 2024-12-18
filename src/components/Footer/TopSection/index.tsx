@@ -1,5 +1,5 @@
 // @mui
-import { Stack, useMediaQuery } from "@mui/material";
+import { Stack, useMediaQuery, useTheme } from "@mui/material";
 
 // components
 import Logo from "./Logo";
@@ -7,13 +7,14 @@ import NavigationMenu from "./NavigationMenu";
 import FooterLinks from "./Links";
 
 const TopSection = () => {
-  const isWideScreen = useMediaQuery("(min-width: 992px)");
+  const theme = useTheme();
+  const islgOverScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
       <Stack
-        direction={isWideScreen ? "row" : "column"}
-        justifyContent={isWideScreen ? "space-between" : "center"}
-        margin="48px -12px"
+        direction={islgOverScreen ? "row" : "column"}
+        justifyContent={islgOverScreen ? "space-between" : "center"}
+        margin={islgOverScreen ? "48px -12px" : "16px -12px"}
         gap={4}
       >
         <Logo />

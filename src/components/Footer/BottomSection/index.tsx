@@ -1,7 +1,9 @@
 // @mui
-import { Stack, Typography, useMediaQuery } from "@mui/material";
+import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 const BottomSection = () => {
+  const theme = useTheme();
+  const islgOverScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const isWideScreen = useMediaQuery("(min-width: 768px)");
 
   return (
@@ -11,7 +13,7 @@ const BottomSection = () => {
       gap={2}
       sx={{
         borderTop: "1px solid #343445",
-        padding: "48px 0 0"
+        padding: islgOverScreen ? "48px 0 0" : "16px 0 0"
       }}
     >
       <Typography
@@ -27,7 +29,7 @@ const BottomSection = () => {
 
       <Typography
         color="#8576da"
-        fontSize={16}
+        fontSize={14}
         textAlign="center"
       >
         Copyright © 2024 Veil. All rights reserved.

@@ -27,7 +27,7 @@ const NavigationMenu = () => {
             }
           }}
         >
-          <Typography fontSize="18px" textAlign="center">
+          <Typography fontSize="16px" textAlign="center">
             {item.title}
           </Typography>
         </Button>

@@ -26,13 +26,15 @@ export default function Providers({
         <CssBaseline />
         <Stack 
           minHeight="100vh"
-          width="100vw"
           sx={{
+             width: 'calc(100% - var(--scrollbar-width))',
             backgroundColor: "#16161C"
           }}
         >
           <Header /> 
+
           {children}
+          
           <Footer />
         </Stack>
       </ThemeProvider>

@@ -1,6 +1,5 @@
-
 // @mui
-import { Stack, Typography, useTheme } from "@mui/material";
+import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 // components
 import CustomizedAccordions from "./CustomizedAccordions";
@@ -8,6 +7,7 @@ import { GradientText } from "../HeroSection/TitleSection";
 
 const FAQs = () => {
   const theme = useTheme();
+  const isNarrowScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <>
@@ -17,10 +17,10 @@ const FAQs = () => {
         <Stack
           gap={1}
           sx={{
-            margin: "48px auto",
+            margin: isNarrowScreen ? "24px auto" : "48px auto",
             maxWidth: "960px",
             width: "100%",
-            padding: "48px 16px"
+            padding: isNarrowScreen ? "24px 16px" : "48px 16px"
           }}
         >
           <Stack alignItems="center">

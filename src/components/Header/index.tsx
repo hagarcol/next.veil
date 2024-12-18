@@ -29,10 +29,17 @@ const Logo = () => (
   </Stack>
 );
 
-const NavigationMenu = ({ isWideScreen }: {isWideScreen: boolean}) => {
+const NavigationMenu = ({ 
+  isWideScreen, 
+  setMenuVisible 
+}: {
+  isWideScreen: boolean;
+  setMenuVisible: (value: boolean) => void;
+}) => {
   const router = useRouter();
   const handlePageNavigation = (url: string) => {
     router.push(url);
+    setMenuVisible(false);
   }
 
   return (
@@ -78,7 +85,7 @@ const Header = () => {
           <Logo />
           
           {(isWideScreen || menuVisible) && (
-            <NavigationMenu isWideScreen={isWideScreen} />
+            <NavigationMenu isWideScreen={isWideScreen} setMenuVisible={setMenuVisible}/>
           )}
 
           <Stack direction="row" gap={3} padding="0 12px">
