@@ -22,7 +22,7 @@ interface Chart_DATA_TYPE {
   color: string;
 };
 
-const getLighterColor = (baseColor: string, num: number) => {
+export const getLighterColor = (baseColor: string, num: number) => {
   return alpha(baseColor, num);
 };
 
