@@ -5,7 +5,7 @@ import { Stack, useTheme, Typography, useMediaQuery } from "@mui/material";
 import CustomContainer from "@/components/Custom/Container";
 import TextSection from "@/components/Custom/TextSection";
 import CustomBox from "@/components/Custom/Box";
-import DonutChart from "./Canvas";
+import ChartSection from "./Chart";
 
 // data
 import { Revenue_Allocation_DATA } from "@/assets/data";
@@ -73,7 +73,7 @@ const RevenueAllocation = () => {
                       align="left"
                       fontWeight={400}
                     >
-                      {item.name}
+                      {item.name}:
                     </Typography>
 
                     <Typography
@@ -93,6 +93,7 @@ const RevenueAllocation = () => {
 
         <Stack
           padding="0 12px"
+          alignSelf="center"
           alignItems="center"
           sx={{
             width: islgOverScreen
@@ -100,7 +101,7 @@ const RevenueAllocation = () => {
               : "100%"
           }}
         >
-          <DonutChart />
+          <ChartSection />
         </Stack>
       </Stack>
     </CustomContainer>

@@ -2,17 +2,18 @@ import React from 'react';
 import { Box, alpha } from '@mui/material';
 
 const DonutChart = () => {
-  const data = [
-    { value: 20, color: '#451f2b' }, 
-    { value: 20, color: '#123a2b' },
-    { value: 15, color: '#1A365D' }, 
-    { value: 15, color: '#2d2949' }, 
-    { value: 15, color: '#6B4423' },
-    { value: 15, color: '#992B2B' }, 
-  ];
+  const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
-  const getLighterColor = (baseColor: string) => {
-    return alpha(baseColor, 0.7);
+  const data = [
+    { value: 30, color: '#DC3545' }, 
+    { value: 20, color: '#10CD75' },
+    { value: 20, color: '#8671FF' }, 
+    { value: 15, color: '#0DCAF0' }, 
+    { value: 15, color: '#FFA800' },
+  ];  
+
+  const getLighterColor = (baseColor: string, num: number) => {
+    return alpha(baseColor, num);
   };
 
   const total = data.reduce((sum, item) => sum + item.value, 0);
@@ -27,8 +28,9 @@ const DonutChart = () => {
       const startRad = (startAngle - 90) * Math.PI / 180;
       const endRad = (endAngle - 90) * Math.PI / 180;
       
-      const radius = 50;
-      const innerRadius = 30;
+      const strokeWidth = 0.5;
+      const radius = 49.75;
+      const innerRadius = 30.25;
 
       const x1 = 50 + radius * Math.cos(startRad);
       const y1 = 50 + radius * Math.sin(startRad);
@@ -56,9 +58,14 @@ const DonutChart = () => {
         <path
           key={index}
           d={path}
-          fill={getLighterColor(item.color)}
+          fill={getLighterColor(item.color, hoveredIndex === index ? 0.5 : 0.3)}
           stroke={item.color}
-          strokeWidth="1"
+          strokeWidth={strokeWidth}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
+          style={{ transition: 'fill 0.2s' }}
         />
       );
     });

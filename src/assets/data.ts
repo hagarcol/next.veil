@@ -367,28 +367,38 @@ export const VEIL_TOKENOMICS_DATA = [
 
 export const Revenue_Allocation_DATA = [
   {
-    name: "Marketing:",
+    id: 0,
+    name: "Marketing",
     percent: "30%",
-    color: "#DC3545"
+    color: "#DC3545",
+    value: 30,
   },
   {
-    name: "Revenue Share:",
+    id: 1,
+    name: "Revenue Share",
     percent: "20%",
-    color: "#10CD75"
+    color: "#10CD75",
+    value: 20,
   },
   {
-    name: "Team:",
+    id: 2,
+    name: "Team",
     percent: "20%",
-    color: "#8671FF"
+    color: "#8671FF",
+    value: 20,
   },
   {
-    name: "Development:",
+    id: 3,
+    name: "Development",
     percent: "15%",
-    color: "#0DCAF0"
+    color: "#0DCAF0",
+    value: 15,
   },
   {
-    name: "Treasury:",
+    id: 4,
+    name: "Treasury",
     percent: "15%",
-    color: "#FFA800"
+    color: "#FFA800",
+    value: 15
   },
 ];
