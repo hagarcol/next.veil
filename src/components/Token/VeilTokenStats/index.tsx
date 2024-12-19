@@ -1,11 +1,25 @@
 // @mui
-import { Stack, Grid } from "@mui/material";
+import { Stack, Grid, Typography } from "@mui/material";
 
 // components
 import TextSection from "@/components/Custom/TextSection";
 import CustomBox from "@/components/Custom/Box";
+import CustomContainer from "@/components/Custom/Container";
+
+//icons
+import EthereumIcon from "./icon/EthereumIcon";
+import HolderIcon from "./icon/HolderIcon";
+import TransactionIcon from "./icon/TransactionIcon";
+import EthIcon from "./icon/EthIcon";
+import MarketIcon from "./icon/MarketIcon";
+
+// redux
+import { isModalOpen, setModalType } from "@/redux/slices/extra";
+import { dispatch } from "@/redux/store";
+
 
 interface CountItemType {
+  index: number;
   title: string;
   count: string;
 }
@@ -15,7 +29,15 @@ interface TimeUnit {
   count: string;
 }
 
+const Icons = [
+  { icon: <HolderIcon /> },
+  { icon: <TransactionIcon /> },
+  { icon: <EthIcon /> },
+  { icon: <MarketIcon /> },
+];
+
 const StatsItem = ({
+  index,
   title,
   count
 }: CountItemType) => {
@@ -24,7 +46,7 @@ const StatsItem = ({
       title={{
         text: title,
         variant: "customFont",
-        align: "left",
+        align: "center",
         fontSize: 24,
         fontWeight: 700,
         sx: {
@@ -43,11 +65,16 @@ const StatsItem = ({
         >
           <Stack
             gap={2}
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
             sx={{
               flexGrow: 1,
               padding: "16px"
             }}
           >
+            {Icons[index].icon}
+
             <TextSection 
               text={count}
               variant="customFont"
@@ -71,26 +98,61 @@ const VeilTokenStats = () => {
   ];
 
   return (
-    <Stack>
-      <TextSection 
-        text="$Veil Token Stats"
-        align="center"
-        variant="customFont"
-        fontSize={40}
-        margin="0 0 24px"
-      />
+    <CustomContainer>
+      <Stack>
+        <Stack margin="0 0 48px">
+          <TextSection 
+            text="$Veil Token Stats"
+            align="center"
+            variant="customFont"
+            gradient={true}
+            fontSize={40}
+            margin="0 0 24px"
+          />
 
-      <Grid container spacing={2}>
-        {TokenStats.map((stat, index) => (
-          <Grid key={index} item xs={6} sm={6} md={3}>
-            <StatsItem 
-              title={stat.title}
-              count={stat.count} 
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Stack>
+          <Stack 
+            direction="row" 
+            gap={1} 
+            justifyContent="center"
+            onClick={() => {
+              dispatch(setModalType("locked"));
+              dispatch(isModalOpen(true));
+            }}
+          >
+            <EthereumIcon />
+
+            <Typography
+              fontSize={16}
+              textAlign="center"
+              sx={{
+                textDecoration: "underline",
+                textUnderlineOffset: "6px",
+                cursor: "pointer",
+                color: "white",
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "#8671FF"
+                }
+              }}
+            >
+              View on Etherscan
+            </Typography>
+          </Stack>
+        </Stack>
+
+        <Grid container spacing={2}>
+          {TokenStats.map((stat, index) => (
+            <Grid key={index} item xs={6} xl={3}>
+              <StatsItem 
+                index={index}
+                title={stat.title}
+                count={stat.count} 
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Stack>
+    </CustomContainer>
   )
 };
 

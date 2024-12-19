@@ -1,3 +1,5 @@
+"use client";
+
 // components
 import Token from "@/components/Token";
 

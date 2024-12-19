@@ -1,23 +1,23 @@
 export const HeaderItems = [
   {
     name: "Home",
-    url: ""
+    url: "/home"
   },
   {
     name: "FAQs",
-    url: ""
+    url: "/faq"
   },
   {
     name: "Utility Token",
-    url: ""
+    url: "/token"
   },
   {
     name: "Revenue Share",
-    url: ""
+    url: "/revenue"
   },
   {
     name: "How to use",
-    url: ""
+    url: "#"
   },
 ]
 
@@ -363,4 +363,42 @@ export const VEIL_TOKENOMICS_DATA = [
     name: "CEX Allocation:",
     amount: "80,000,000"
   },
-]
+];
+
+export const Revenue_Allocation_DATA = [
+  {
+    id: 0,
+    name: "Marketing",
+    percent: "30%",
+    color: "#DC3545",
+    value: 30,
+  },
+  {
+    id: 1,
+    name: "Revenue Share",
+    percent: "20%",
+    color: "#10CD75",
+    value: 20,
+  },
+  {
+    id: 2,
+    name: "Team",
+    percent: "20%",
+    color: "#8671FF",
+    value: 20,
+  },
+  {
+    id: 3,
+    name: "Development",
+    percent: "15%",
+    color: "#0DCAF0",
+    value: 15,
+  },
+  {
+    id: 4,
+    name: "Treasury",
+    percent: "15%",
+    color: "#FFA800",
+    value: 15
+  },
+];

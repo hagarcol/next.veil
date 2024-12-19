@@ -9,7 +9,7 @@ import { GradientText } from "../HeroSection/TitleSection";
 import { LATEST_UPDATES_DATA } from "@/assets/data";
 
 const LatestUpdates = () => {
-  const isNarrowScreen = useMediaQuery('(max-width: 992px)');
+  const isWideScreen = useMediaQuery('(min-width: 768px)');
 
   return (
     <Stack
@@ -41,13 +41,14 @@ const LatestUpdates = () => {
         </Box>
 
         <Stack 
-          direction={isNarrowScreen ? "column" : "row"} 
-          gap={isNarrowScreen ? 2 : 0}
+          direction={!isWideScreen ? "column" : "row"} 
+          gap={!isWideScreen ? 2 : 0}
           justifyContent="space-between" 
         >
           {LATEST_UPDATES_DATA.detail.map((item, index) => (
-            <CustomCard key={index} props={item} isNarrowScreen={isNarrowScreen} />
+            <CustomCard key={index} props={item} isWideScreen={isWideScreen} />
           ))}
+
         </Stack>
       </Stack>
     </Stack>

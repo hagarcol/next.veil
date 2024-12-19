@@ -4,8 +4,13 @@ import { Stack, Button, Typography, useMediaQuery } from "@mui/material";
 // data
 import { FOOTER_DATA } from "@/assets/data";
 
+// redux
+import { dispatch } from "@/redux/store";
+import { setModalType, isModalOpen } from "@/redux/slices/extra";
+
 const NavigationMenu = () => {
   const isWideScreen = useMediaQuery("(min-width: 576px)");
+
   return (
     <Stack 
       direction={isWideScreen ? "row" : "column"} 
@@ -15,6 +20,10 @@ const NavigationMenu = () => {
       {FOOTER_DATA.items.map((item, index) => (
         <Button
           key={index}
+          onClick={() => {
+            dispatch(setModalType("locked"));
+            dispatch(isModalOpen(true));
+          }}
           sx={{ 
             padding: "8px 24px",
             textTransform: "none",
@@ -27,7 +36,7 @@ const NavigationMenu = () => {
             }
           }}
         >
-          <Typography fontSize="18px" textAlign="center">
+          <Typography fontSize="16px" textAlign="center">
             {item.title}
           </Typography>
         </Button>

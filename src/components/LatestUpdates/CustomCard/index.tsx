@@ -7,14 +7,14 @@ import FloatingImage from "@/components/CoreBenefits/CustomCard/FloatingImage";
 // types
 import { LATEST_UPDATES_ITEM_TYPE } from "../types";
 
-const CustomCard = ({ props, isNarrowScreen }: {props: LATEST_UPDATES_ITEM_TYPE, isNarrowScreen: boolean}) => {
+const CustomCard = ({ props, isWideScreen }: {props: LATEST_UPDATES_ITEM_TYPE, isWideScreen: boolean}) => {
   const theme = useTheme();
   const {img, label, title, content, date} = props;
 
   return (
     <Stack
       sx={{
-        width: isNarrowScreen ? "100%" : "33%",
+        width: !isWideScreen ? "100%" : "33%",
         margin: "0 12px",
         border: "1px solid #343445",
         borderRadius: "1rem",

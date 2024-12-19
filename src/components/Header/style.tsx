@@ -1,7 +1,7 @@
 const styles = {
   appBar: {
     height: "100px",
-    padding: "8px 0",
+    padding: "8px 0 !important",
     background: 'transparent',
     backdropFilter: 'blur(7px)',
     WebkitBackdropFilter: 'blur(5px)',
@@ -54,7 +54,19 @@ const styles = {
     padding: isWideScreen ? "0 0" : "1rem 0",
     gap: isWideScreen ? 0 : "1rem",
     // transition: "all 0.3s ease-in-out"  
-  })
+  }),
+  headerItem: {
+    padding: "8px 24px",
+    textTransform: "none",
+    background: "transparent",
+    color: "white",
+    transition: "color 0.3s",
+    borderRadius: "4rem",
+    "&.MuiButton-root:hover": { 
+      background: "transparent",
+      color: "#8671FF",
+    }
+  }
 };
 
 export default styles;

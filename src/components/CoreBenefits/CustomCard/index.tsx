@@ -1,5 +1,5 @@
 // @mui
-import { Stack, Typography, useTheme } from "@mui/material"
+import { Stack, Typography, useTheme, useMediaQuery } from "@mui/material"
 
 //components
 import FloatingImage from "./FloatingImage";
@@ -9,6 +9,7 @@ import { CORE_BENEFITS_ITEM_TYPE } from "../types"
 
 const CustomCard = ({ props, isNarrowScreen }: {props: CORE_BENEFITS_ITEM_TYPE, isNarrowScreen: boolean}) => {
   const theme = useTheme();
+  const isWideScreen = useMediaQuery(theme.breakpoints.up("md"));
   const {img, subTitle, content} = props;
 
   return (
@@ -31,7 +32,7 @@ const CustomCard = ({ props, isNarrowScreen }: {props: CORE_BENEFITS_ITEM_TYPE, 
           height: "100%", 
         }}
       >
-        <FloatingImage src={img} alt="Lock" />
+        <FloatingImage src={img} alt="Lock" height={isWideScreen ? 170 : 120}/>
 
         <Stack
           padding="24px"

@@ -1,62 +1,98 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 // @mui
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CachedIcon from '@mui/icons-material/Cached';
 import { AppBar, Stack, Button, Typography, Container } from "@mui/material";
+
 // @data
 import { HeaderItems } from "@/assets/data";
+
 // styles
 import styles from "./style";
+import { useDispatch } from "react-redux";
+import { isModalOpen, setModalType } from "@/redux/slices/extra";
 
-const Logo = () => (
-  <Stack direction="row" alignItems="center" sx={{cursor: "pointer"}}>
-    <Image
-      src="/images/logo/veil.svg"
-      alt="Veil Brand Icon"
-      width={73}
-      height={40}
-      priority
-    />
-    <Typography variant="customFont" fontSize="24px">
-      Veil
-    </Typography>
-  </Stack>
-);
+const Logo = () => {
+  const router = useRouter();
 
-const NavigationMenu = ({ isWideScreen }: {isWideScreen: boolean}) => (
-  <Stack
-    direction={isWideScreen ? "row" : "column"}
-    sx={styles.navigationMenu(isWideScreen)}
-  >
-    {HeaderItems.map((item, index) => (
-      <Button
-        key={index}
-        sx={{ 
-          padding: "8px 24px",
-          textTransform: "none",
-          background: "transparent",
-          color: "white",
-          transition: "color 0.3s",
-          "&.MuiButton-root:hover": { 
-            background: "transparent",
-            color: "#8671FF",
-          }
-        }}
-      >
-        <Typography fontSize="18px">
-          {item.name}
-        </Typography>
-      </Button>
-    ))}
-  </Stack>
-);
+  return (
+    <Stack 
+      direction="row" 
+      alignItems="center" 
+      padding="0 12px" 
+      onClick={() => {
+        router.push("/home");
+      }}
+      sx={{cursor: "pointer"}}
+    >
+      <Image
+        src="/images/logo/veil.svg"
+        alt="Veil Brand Icon"
+        width={73}
+        height={40}
+        priority
+      />
+      
+      <Typography variant="customFont" fontSize="24px">
+        Veil
+      </Typography>
+    </Stack>
+  )
+};
+
+const NavigationMenu = ({ 
+  isWideScreen, 
+  setMenuVisible 
+}: {
+  isWideScreen: boolean;
+  setMenuVisible: (value: boolean) => void;
+}) => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const handlePageNavigation = (url: string) => {
+    if (url === "#") {
+      dispatch(setModalType("lock"));
+      dispatch(isModalOpen(true));
+    } else router.push(url);
+    setMenuVisible(false);
+  }
+
+  return (
+    <Stack
+      direction={isWideScreen ? "row" : "column"}
+      sx={styles.navigationMenu(isWideScreen)}
+    >
+      {HeaderItems.map((item, index) => (
+        <Button
+          key={index}
+          onClick={() => handlePageNavigation(item.url)}
+          sx={styles.headerItem}
+        >
+          <Typography fontSize="16px">
+            {item.name}
+          </Typography>
+        </Button>
+      ))}
+    </Stack>
+  )
+};
 
 const Header = () => {
-  const isWideScreen = useMediaQuery('(min-width:1200px)');
-  const isNarrowScreen = useMediaQuery('(max-width:576px)');
+  const theme = useTheme();
+  const dispatch = useDispatch();
+
+  const isWideScreen = useMediaQuery('(min-width:1024px)');
+  const isNarrowScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const handleExchange = () => {
+    dispatch(setModalType("locked"));
+    dispatch(isModalOpen(true));
+  }
 
   return (
     <AppBar position="fixed" sx={styles.appBar}>
@@ -65,12 +101,12 @@ const Header = () => {
           <Logo />
           
           {(isWideScreen || menuVisible) && (
-            <NavigationMenu isWideScreen={isWideScreen} />
+            <NavigationMenu isWideScreen={isWideScreen} setMenuVisible={setMenuVisible}/>
           )}
 
-          <Stack direction="row" gap={3}>
+          <Stack direction="row" gap={3} padding="0 12px">
             {!isNarrowScreen && (
-              <Button sx={styles.exchangeButton}>
+              <Button sx={styles.exchangeButton} onClick={handleExchange}>
                 <Stack direction="row" alignItems="center" gap={0.5}>
                   <CachedIcon sx={{ height: 36, width: 36, color: "white" }} />
                   <Typography 
