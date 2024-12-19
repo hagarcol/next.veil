@@ -15,18 +15,27 @@ import CryptoBox from "./CryptoBox";
 import WalletAddress from "./WalletAddress";
 
 // redux
-import { useDispatch } from "react-redux";
-import { swapCrypto } from "@/redux/slices/crypto";
+import { useDispatch, useSelector } from "react-redux";
+import { exchangePreview, swapCrypto } from "@/redux/slices/crypto";
 import { setModalType, isModalOpen } from "@/redux/slices/extra";
+import { RootState, AppDispatch } from "@/redux/store";
 
 const ExchangeCrypto = () => {
   const isWideScreen = useMediaQuery("(min-width:768px)");
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+  const { input_value } = useSelector((state: RootState) => state.crypto);
   const theme = useTheme();
   const [checked, setChecked] = useState(false);
 
   const handleSwapCrypto = () => {
     dispatch(swapCrypto());
+
+    if (isNaN(input_value)) {
+      // console.error("Invalid input value:", input_value);
+      return;
+    }
+    const val = input_value.toString();
+    dispatch(exchangePreview(val));
   }
 
   return (

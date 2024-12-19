@@ -31,7 +31,7 @@ export const rootPersistConfig = {
 
 const rootReducer = combineReducers({
   crypto: CryptoReducer,
-  extra: ExtraReducer,
+  extra: ExtraReducer
 });
 
 export default rootReducer;

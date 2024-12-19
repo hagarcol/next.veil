@@ -174,68 +174,81 @@ export interface CRYPTO_TYPE {
   img: string;
   name: string;
   subName: string;
+  exchangeRate: number;
 }
 
-export const CRYPTO_DATA = [
+export const CRYPTO_DATA: CRYPTO_TYPE[] = [
   {
     img: "/images/crypto/btc.svg",
     name: "Bitcoin",
     subName: "BTC",
+    exchangeRate: 43000
   },
   {
     img: "/images/crypto/eth.svg",
     name: "Ethereum",
     subName: "ETH",
+    exchangeRate: 2250
   },
   {
     img: "/images/crypto/bnb.svg",
     name: "BNB Smart Chain",
     subName: "BNBBSC",
+    exchangeRate: 310
   },
   {
     img: "/images/crypto/sol.svg",
     name: "Solana",
     subName: "SOL",
+    exchangeRate: 95
   },
   {
     img: "/images/crypto/uni.svg",
     name: "Uniswap",
     subName: "UNI",
+    exchangeRate: 7.5
   },
   {
     img: "/images/crypto/ada.svg",
     name: "Cardano",
     subName: "ADA",
+    exchangeRate: 0.5
   },
   {
     img: "/images/crypto/busd.svg",
     name: "BinanceUSD(ERC20)",
     subName: "BUSD",
+    exchangeRate: 1  // Stablecoin, pegged to USD
   },
   {
     img: "/images/crypto/dai.svg",
     name: "Dai",
     subName: "DAI",
+    exchangeRate: 1  // Stablecoin, pegged to USD
   },
   {
     img: "/images/crypto/doge.svg",
     name: "Dogecoin",
     subName: "DOGE",
+    exchangeRate: 0.08
   },
   {
     img: "/images/crypto/link.svg",
     name: "Chainlink",
     subName: "LINK",
+    exchangeRate: 15
   },
   {
     img: "/images/crypto/ltc.svg",
     name: "Litecoin",
     subName: "LTC",
+    exchangeRate: 65
   },
   {
     img: "/images/crypto/trx.svg",
     name: "Tron",
-    subName: "trx",
+    subName: "TRX",
+    exchangeRate: 0.11
   },
 ];
 

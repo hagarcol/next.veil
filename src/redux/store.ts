@@ -25,4 +25,7 @@ const useSelector = useAppSelector;
 
 const useDispatch = () => useAppDispatch();
 
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
 export { dispatch, persistor, store, useDispatch, useSelector };

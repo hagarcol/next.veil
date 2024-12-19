@@ -14,12 +14,13 @@ import CryptoModal from "../CryptoModal";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/types";
-import { setType } from "@/redux/slices/crypto";
-import { YOU_SEND, SENDER, RECEIVER } from "@/constants/transaction";
+import { setType, exchangePreview } from "@/redux/slices/crypto";
+import { YOU_SEND, SENDER, RECEIVER, YOU_RECEIVE } from "@/constants/transaction";
+import { AppDispatch } from "@/redux/store";
 
 const CryptoBox = ({ title }: { title: string }) => {
-  const dispatch = useDispatch();
-  const { sender, receiver } = useSelector((state: RootState) => state.crypto);
+  const dispatch = useDispatch<AppDispatch>();
+  const { sender, receiver, input_value, input_label, output_value, output_label } = useSelector((state: RootState) => state.crypto);
   const isNarrowScreen = useMediaQuery("(max-width:768px)");
 
   const theme = useTheme();
@@ -28,11 +29,14 @@ const CryptoBox = ({ title }: { title: string }) => {
   const handleOpen = () => {
     const type = title === YOU_SEND ? SENDER : RECEIVER;
     dispatch(setType(type));
-
     setOpen(true);
   }
 
   const handleClose = () => setOpen(false);
+
+  const handleExchangedValue = (val: string) => {
+    dispatch(exchangePreview(val));
+  }
 
   return (
     <>
@@ -44,9 +48,16 @@ const CryptoBox = ({ title }: { title: string }) => {
             border: "1px solid #343445"
           }}
         >
-          <Typography padding={2} fontSize={20} fontWeight={700} color="white">
-            {title}
-          </Typography>
+          <Stack direction="row" justifyContent="space-between" alignItems="center">
+            <Typography padding={2} fontSize={20} fontWeight={700} color="white">
+              {title}
+            </Typography>
+
+            <Typography padding={2} fontSize={16} fontWeight={400} color="#DEDEDE80" fontStyle="italic">
+              {title === YOU_SEND && input_label}
+              {title === YOU_RECEIVE && output_label}
+            </Typography>
+          </Stack>
 
           <Fade in timeout={300}>
             <Stack
@@ -94,7 +105,14 @@ const CryptoBox = ({ title }: { title: string }) => {
               </CurrencySelector>
 
               <DarkTextField
+                onChange={(e) => handleExchangedValue(e.target.value)}
+                type="number"
                 placeholder="0.0000"
+                value={
+                  title === YOU_RECEIVE 
+                    ?output_value  || ""
+                    :input_value  || ""
+                }
                 fullWidth
                 variant="outlined"
                 disabled={title !== YOU_SEND}
