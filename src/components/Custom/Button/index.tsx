@@ -1,6 +1,10 @@
 // @mui
 import { Button, Stack, Typography, useTheme } from "@mui/material";
 
+// redux
+import { isModalOpen, setModalType } from "@/redux/slices/extra";
+import { dispatch } from "@/redux/store";
+
 interface PropsType {
   text: string;
 }
@@ -9,9 +13,13 @@ const CustomButton = ({
   text
 }: PropsType) => {
   const theme = useTheme();
-
+  
   return (
-    <Button 
+    <Button
+      onClick={() => {
+        dispatch(setModalType("locked"));
+        dispatch(isModalOpen(true));
+      }} 
       sx={{
         boxShadow: "0 0 10px rgba(0,0,0,.35)",
         padding: "16px 24px",
@@ -30,7 +38,11 @@ const CustomButton = ({
         // }
       }}
     >
-      <Stack direction="row" alignItems="center" gap={0.5}>
+      <Stack 
+        direction="row" 
+        alignItems="center" 
+        gap={0.5}
+      >
         <Typography 
           color="white"
           fontSize={16}

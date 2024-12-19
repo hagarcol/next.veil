@@ -15,6 +15,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  padding-right: 0px !important;
 }
 
 body {
@@ -55,5 +56,13 @@ a {
 }
 
 .rotating-icon {
-  animation: rotateWithPause 2.5s ease-in-out infinite; /* 2.5s total: 0.5s rotate, 2s pause */
+  animation: rotateWithPause 2.5s ease-in-out infinite;
+}
+
+.MuiDialog-root {
+  & .MuiDialog-container {
+    & .MuiDialog-paper {
+      margin: 16px;
+    }
+  }
 }

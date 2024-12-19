@@ -12,7 +12,8 @@ const SupportedCrypto = () => {
   return (
     <Stack
       sx={{
-        backgroundColor: "#16161C"
+        backgroundColor: "#16161C",
+        
       }}
     >
       <Stack margin="48px 0" padding="48px 16px">

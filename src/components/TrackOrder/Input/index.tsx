@@ -3,6 +3,10 @@ import { Stack, TextField, useTheme, Button, Typography, useMediaQuery } from "@
 import { styled } from '@mui/material/styles';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
+// redux
+import { dispatch } from "@/redux/store";
+import { setModalType, isModalOpen } from "@/redux/slices/extra";
+
 const DarkTextField = styled(TextField)(() => ({
   '& .MuiInputBase-root': {
     backgroundColor: '#121212',
@@ -65,6 +69,10 @@ const TrackOrderInput = () => {
         />
 
         <Button 
+          onClick={() => {
+            dispatch(setModalType("locked"));
+            dispatch(isModalOpen(true));
+          }}
           sx={{
             boxShadow: "0 0 10px rgba(0,0,0,.35)",
             height: "60px",

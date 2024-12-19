@@ -8,6 +8,10 @@ import CustomButton from "@/components/Custom/Button";
 // data
 import { VEIL_TOKENOMICS_DATA } from "@/assets/data";
 
+// redux
+import { isModalOpen, setModalType } from "@/redux/slices/extra";
+import { dispatch } from "@/redux/store";
+
 interface PropsType {
   index: number;
   name: string;
@@ -136,6 +140,10 @@ const TokenSection = () => {
               
               <Stack
                 alignSelf="center"
+                onClick={() => {
+                  dispatch(setModalType("locked"));
+                  dispatch(isModalOpen(true));
+                }}
               >
                 <Typography
                   fontSize={16}

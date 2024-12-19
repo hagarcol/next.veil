@@ -13,22 +13,36 @@ import { HeaderItems } from "@/assets/data";
 
 // styles
 import styles from "./style";
+import { useDispatch } from "react-redux";
+import { isModalOpen, setModalType } from "@/redux/slices/extra";
 
-const Logo = () => (
-  <Stack direction="row" alignItems="center" padding="0 12px" sx={{cursor: "pointer"}}>
-    <Image
-      src="/images/logo/veil.svg"
-      alt="Veil Brand Icon"
-      width={73}
-      height={40}
-      priority
-    />
-    
-    <Typography variant="customFont" fontSize="24px">
-      Veil
-    </Typography>
-  </Stack>
-);
+const Logo = () => {
+  const router = useRouter();
+
+  return (
+    <Stack 
+      direction="row" 
+      alignItems="center" 
+      padding="0 12px" 
+      onClick={() => {
+        router.push("/home");
+      }}
+      sx={{cursor: "pointer"}}
+    >
+      <Image
+        src="/images/logo/veil.svg"
+        alt="Veil Brand Icon"
+        width={73}
+        height={40}
+        priority
+      />
+      
+      <Typography variant="customFont" fontSize="24px">
+        Veil
+      </Typography>
+    </Stack>
+  )
+};
 
 const NavigationMenu = ({ 
   isWideScreen, 
@@ -37,9 +51,13 @@ const NavigationMenu = ({
   isWideScreen: boolean;
   setMenuVisible: (value: boolean) => void;
 }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const handlePageNavigation = (url: string) => {
-    router.push(url);
+    if (url === "#") {
+      dispatch(setModalType("lock"));
+      dispatch(isModalOpen(true));
+    } else router.push(url);
     setMenuVisible(false);
   }
 
@@ -65,9 +83,16 @@ const NavigationMenu = ({
 
 const Header = () => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+
   const isWideScreen = useMediaQuery('(min-width:1024px)');
   const isNarrowScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const handleExchange = () => {
+    dispatch(setModalType("locked"));
+    dispatch(isModalOpen(true));
+  }
 
   return (
     <AppBar position="fixed" sx={styles.appBar}>
@@ -81,7 +106,7 @@ const Header = () => {
 
           <Stack direction="row" gap={3} padding="0 12px">
             {!isNarrowScreen && (
-              <Button sx={styles.exchangeButton}>
+              <Button sx={styles.exchangeButton} onClick={handleExchange}>
                 <Stack direction="row" alignItems="center" gap={0.5}>
                   <CachedIcon sx={{ height: 36, width: 36, color: "white" }} />
                   <Typography 

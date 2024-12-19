@@ -17,6 +17,7 @@ import WalletAddress from "./WalletAddress";
 // redux
 import { useDispatch } from "react-redux";
 import { swapCrypto } from "@/redux/slices/crypto";
+import { setModalType, isModalOpen } from "@/redux/slices/extra";
 
 const ExchangeCrypto = () => {
   const isWideScreen = useMediaQuery("(min-width:768px)");
@@ -117,6 +118,10 @@ const ExchangeCrypto = () => {
 
             <Stack padding="0 12px">
               <ExchangeButton
+                onClick={() => {
+                  dispatch(setModalType("locked"));
+                  dispatch(isModalOpen(true));
+                }}
                 sx={{
                   padding: "12px 24px",
                   backgroundColor: "#8671ffcc",
@@ -149,6 +154,10 @@ const ExchangeCrypto = () => {
               </Typography>
               <Typography 
                 color={theme.palette.primary.main} 
+                onClick={() => {
+                  dispatch(setModalType("locked"));
+                  dispatch(isModalOpen(true));
+                }}
                 sx={{
                   cursor: "pointer", 
                   textDecoration: "underline",

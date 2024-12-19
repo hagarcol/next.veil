@@ -13,6 +13,11 @@ import TransactionIcon from "./icon/TransactionIcon";
 import EthIcon from "./icon/EthIcon";
 import MarketIcon from "./icon/MarketIcon";
 
+// redux
+import { isModalOpen, setModalType } from "@/redux/slices/extra";
+import { dispatch } from "@/redux/store";
+
+
 interface CountItemType {
   index: number;
   title: string;
@@ -105,7 +110,15 @@ const VeilTokenStats = () => {
             margin="0 0 24px"
           />
 
-          <Stack direction="row" gap={1} justifyContent="center">
+          <Stack 
+            direction="row" 
+            gap={1} 
+            justifyContent="center"
+            onClick={() => {
+              dispatch(setModalType("locked"));
+              dispatch(isModalOpen(true));
+            }}
+          >
             <EthereumIcon />
 
             <Typography

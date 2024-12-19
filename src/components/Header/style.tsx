@@ -1,7 +1,7 @@
 const styles = {
   appBar: {
     height: "100px",
-    padding: "8px 0",
+    padding: "8px 0 !important",
     background: 'transparent',
     backdropFilter: 'blur(7px)',
     WebkitBackdropFilter: 'blur(5px)',

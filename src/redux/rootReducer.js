@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
 import CryptoReducer from "./slices/crypto";
-
+import ExtraReducer from "./slices/extra";
 // ----------------------------------------------------------------------
 
 export const createNoopStorage = () => ({
@@ -31,6 +31,7 @@ export const rootPersistConfig = {
 
 const rootReducer = combineReducers({
   crypto: CryptoReducer,
+  extra: ExtraReducer,
 });
 
 export default rootReducer;

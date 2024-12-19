@@ -42,6 +42,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({
         position: 'relative',
         overflow: 'hidden',
         background: "#16161C",
+        justifyContent: "center",
         '&::before, &::after': {
           content: '""',
           position: 'absolute',

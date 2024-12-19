@@ -107,23 +107,25 @@ const MonthlyRevenuce = () => {
   return (
     <CustomContainer>
       <Stack>
-        <TextSection 
-          text="Monthly Revenue & Payouts"
-          variant="customFont"
-          gradient={true}
-          fontSize={40}
-          align="center"
-          margin="0 0 24px"
-        />
+        <Stack margin="0 0 48px">
+          <TextSection 
+            text="Monthly Revenue & Payouts"
+            variant="customFont"
+            gradient={true}
+            fontSize={40}
+            align="center"
+            margin="0 0 24px"
+          />
 
-        <TextSection 
-          text="Overview for the past 12 Months"
-          color="#8671FF"
-          fontSize={16}
-          fontWeight={400}
-          align="center"
-          margin="0 0 16px"
-        />
+          <TextSection 
+            text="Overview for the past 12 Months"
+            color="#8671FF"
+            fontSize={16}
+            fontWeight={400}
+            align="center"
+            margin="0 0 16px"
+          />
+        </Stack>
 
         <Stack direction={islgOverScreen ? "row" : "column"} gap={2}>
           <Stack padding="0 24px" width={islgOverScreen ? "calc(100% /12 * 8)" : "100%"} gap={1}>

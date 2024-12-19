@@ -9,6 +9,8 @@ import StatsSection from '../StatsSection';
 
 // Types
 import { DescriptionSectionProps } from '../types';
+import { dispatch } from '@/redux/store';
+import { isModalOpen, setModalType } from '@/redux/slices/extra';
 
 const UnderlinedButton = styled(Button)({
   textTransform: "none",
@@ -69,7 +71,14 @@ const DescriptionSection = ({ theme }: DescriptionSectionProps) => (
 
 const ActionButtons = () => (
   <UnderlinedButton>
-    <Stack direction="row" alignItems="center">
+    <Stack
+      direction="row"
+      alignItems="center"
+      onClick={() => {
+        dispatch(setModalType("locked"));
+        dispatch(isModalOpen(true));
+      }}
+    >
       <Typography
         variant='customFont'
         fontSize={20}
@@ -83,6 +92,7 @@ const ActionButtons = () => (
       >
         Try the Exchange Now&nbsp;
       </Typography>
+
       <TrendingFlatRoundedIcon 
         sx={{
           color: "white",

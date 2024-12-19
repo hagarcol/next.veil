@@ -1,4 +1,6 @@
 'use client';
+
+// components
 import FAQs from "@/components/FAQs";
 
 const FAQsPage = () => {

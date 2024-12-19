@@ -20,4 +20,8 @@ export interface RootState {
       amount: null | string
     }
   };
+  extra: {
+    open: boolean,
+    type: 'locked' | 'coming-soon'
+  }
 }
