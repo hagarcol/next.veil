@@ -1,8 +1,8 @@
 // @mui
-import { styled } from '@mui/material/styles';
+import { styled, Theme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-const VideoContainer = styled(Box)({
+const VideoContainer = styled(Box)<{ theme?: Theme }>(({ theme }) => ({ 
   position: "absolute",
   top: 0,
   left: 0,
@@ -10,7 +10,10 @@ const VideoContainer = styled(Box)({
   height: '100vh',
   zIndex: 0,
   overflow: 'hidden',
-});
+  [`@media (max-width: ${theme?.breakpoints.values.lg}px)`]: {
+    minHeight: '70vh'
+  }
+}));
 
 // const BackgroundVideo = styled('video')(({ theme }) => ({
 //   width: '100%',
@@ -21,16 +24,18 @@ const VideoContainer = styled(Box)({
 //   transform: 'translate(-50%, -50%)',
 // })) as typeof Box; 
 
-const VideoBackground = () => (
-  <VideoContainer>
-    <video 
-      autoPlay={true}
-      loop={true}
-      muted={true}
-      playsInline={true}
-      src="/video/herobackground.webm"
-    />
-  </VideoContainer>
-);
+const VideoBackground = () => {
+  return (
+    <VideoContainer>
+      <video 
+        autoPlay={true}
+        loop={true}
+        muted={true}
+        playsInline={true}
+        src="/video/herobackground.webm"
+      />
+    </VideoContainer>
+  )
+};
 
 export default VideoBackground;

@@ -7,11 +7,13 @@ import VideoBackground from './VideoBackground';
 import HeroContent from './HeroContent';
 
 const HeroContainer = styled(Box)(({ theme }) => ({
-  height: '100vh',
+  minHeight: '100vh',
   position: 'relative',
   padding: '260px 3rem 140px 3rem',
-  [theme.breakpoints.down('md')]: {
-    padding: '200px 1.5rem 100px 1.5rem',
+  overflow: "hidden",
+  [theme.breakpoints.down('lg')]: {
+    padding: '160px 24px 60px 24px',
+    minHeight: '70vh',
   },
 }));
 

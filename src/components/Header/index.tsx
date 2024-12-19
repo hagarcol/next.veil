@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 // @mui
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CachedIcon from '@mui/icons-material/Cached';
 import { AppBar, Stack, Button, Typography, Container } from "@mui/material";
@@ -23,6 +23,7 @@ const Logo = () => (
       height={40}
       priority
     />
+    
     <Typography variant="customFont" fontSize="24px">
       Veil
     </Typography>
@@ -51,18 +52,7 @@ const NavigationMenu = ({
         <Button
           key={index}
           onClick={() => handlePageNavigation(item.url)}
-          sx={{ 
-            padding: "8px 24px",
-            textTransform: "none",
-            background: "transparent",
-            color: "white",
-            transition: "color 0.3s",
-            borderRadius: "4rem",
-            "&.MuiButton-root:hover": { 
-              background: "transparent",
-              color: "#8671FF",
-            }
-          }}
+          sx={styles.headerItem}
         >
           <Typography fontSize="16px">
             {item.name}
@@ -74,8 +64,9 @@ const NavigationMenu = ({
 };
 
 const Header = () => {
-  const isWideScreen = useMediaQuery('(min-width:1200px)');
-  const isNarrowScreen = useMediaQuery('(max-width:576px)');
+  const theme = useTheme();
+  const isWideScreen = useMediaQuery('(min-width:1024px)');
+  const isNarrowScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (

@@ -13,7 +13,7 @@ const TrackOrderTitle = () => {
       textAlign="center"
       gap={1}
     >
-      <Stack alignItems="center" margin="0 0 48px">
+      <Stack alignItems="center" margin="0 0 8px">
         <GradientText
           variant='customFont'
           fontSize={40}
